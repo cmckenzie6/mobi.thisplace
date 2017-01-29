@@ -1,0 +1,10 @@
+<!-- Style the X button on popovers-->
+.popover-title .close{
+	position: relative;
+	bottom: 3px;
+	color: #2c3e50;
+}
+
+.btn-circle{
+	border-radius:15px;
+}

@@ -15,6 +15,9 @@
         },
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "mobi.thisplace"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "mobi.thisplace"
         }
     },
     "dependent_plugins": {

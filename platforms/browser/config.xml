@@ -1,27 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="mobi.thisplace" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>ThisPlace</name>
+    <name>ThisPlace.mobi</name>
     <description>See what's near you!</description>
-    <author email="support@phonegap.com" href="http://phonegap.com">PhoneGap Team</author>
+    <author email="cgmckenzie1@gmail.com" href="http://thisplace.mobi">Colin McKenzie</author>
     <content src="index.html" />
-    <gap:plugin name="org.apache.cordova.battery-status" />
-    <gap:plugin name="org.apache.cordova.camera" />
-    <gap:plugin name="org.apache.cordova.media-capture" />
-    <gap:plugin name="org.apache.cordova.console" />
-    <gap:plugin name="org.apache.cordova.contacts" />
-    <gap:plugin name="org.apache.cordova.device" />
-    <gap:plugin name="org.apache.cordova.device-motion" />
-    <gap:plugin name="org.apache.cordova.device-orientation" />
-    <gap:plugin name="org.apache.cordova.dialogs" />
-    <gap:plugin name="org.apache.cordova.file" />
-    <gap:plugin name="org.apache.cordova.file-transfer" />
-    <gap:plugin name="org.apache.cordova.geolocation" />
-    <gap:plugin name="org.apache.cordova.globalization" />
-    <gap:plugin name="org.apache.cordova.inappbrowser" />
-    <gap:plugin name="org.apache.cordova.media" />
-    <gap:plugin name="org.apache.cordova.network-information" />
-    <gap:plugin name="org.apache.cordova.splashscreen" />
-    <gap:plugin name="org.apache.cordova.vibration" />
     <gap:plugin name="org.li8.inappbrowser" source="pgb" spec="0.1" />
     <icon src="icon.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />

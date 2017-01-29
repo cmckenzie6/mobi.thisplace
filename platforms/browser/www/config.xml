@@ -4,7 +4,6 @@
     <description>See what's near you!</description>
     <author email="cgmckenzie1@gmail.com" href="http://thisplace.mobi">Colin McKenzie</author>
     <content src="index.html" />
-    <gap:plugin name="org.li8.inappbrowser" source="pgb" spec="0.1" />
     <icon src="icon.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
     <icon gap:platform="android" gap:qualifier="mdpi" src="www/res/icon/android/icon-48-mdpi.png" />

@@ -12,6 +12,12 @@
         },
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "mobi.geo.info"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "mobi.thisplace"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "mobi.thisplace"
         }
     },
     "dependent_plugins": {},
@@ -36,6 +42,8 @@
     ],
     "plugin_metadata": {
         "cordova-plugin-whitelist": "1.2.2",
-        "cordova-plugin-inappbrowser": "1.4.0"
+        "cordova-plugin-inappbrowser": "1.4.0",
+        "cordova-plugin-compat": "1.1.0",
+        "cordova-plugin-geolocation": "2.4.1"
     }
 }

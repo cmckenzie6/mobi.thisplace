@@ -45,4 +45,8 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.3" />
+	<preference name="SplashScreenDelay" value="5000" /> 
+	<preference name="AutoHideSplashScreen" value="true" />
+	<preference name="ShowSplashScreenSpinner" value="false"/>
+	<preference name="SplashScreen" value="screen"/>
 </widget>

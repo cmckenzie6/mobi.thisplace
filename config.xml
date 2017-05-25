@@ -25,7 +25,6 @@
     <icon gap:platform="android" gap:qualifier="mdpi" src="www/res/icon/android/icon-48-mdpi.png" />
     <icon gap:platform="android" gap:qualifier="hdpi" src="www/res/icon/android/icon-72-hdpi.png" />
     <icon gap:platform="android" gap:qualifier="xhdpi" src="www/res/icon/android/icon-96-xhdpi.png" />
-    <splash src="splash.png" />
     <access origin="*" />
     <plugin name="cordova-plugin-whitelist" version="1" />
     <plugin name="cordova-plugin-geolocation" version="2.4.1" />
@@ -45,9 +44,10 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.3" />
+	<splash src="splash.png" />
+	<gap:splash src="splash.png" />
 	<preference name="SplashScreenDelay" value="5000" /> 
 	<preference name="AutoHideSplashScreen" value="true" />
 	<preference name="ShowSplashScreenSpinner" value="false"/>
 	<preference name="SplashScreen" value="splash"/>
-	<gap:splash src="splash.png" />
 </widget>

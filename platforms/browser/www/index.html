@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Nearby - ThisPlace</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Bootswatch CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-XYCjB+hFAjSbgf9yKUgbysEjaVLOXhCgATTEBpCqT1R3jvG5LGRAK5ZIyRbH5vpX" crossorigin="anonymous">
+	
+	<!-- Local CSS -->
+    <link rel="stylesheet" type="text/css" href="css/master.css">
+
+	<!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
+	
+	<!-- FontAwesome CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+	
+	<!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	
+	<!-- Bootstrap JS -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    
+	<!-- DataTables JS -->
+	<script type="text/javascript" src="https://cdn.datatables.net/u/bs-3.3.6/dt-1.10.12/datatables.js"></script>
+	
+	<!-- DataTables JS Ellipsis Plugin -->
+    <script type="text/javascript" src="http://cdn.datatables.net/plug-ins/1.10.11/dataRender/ellipsis.js"></script>
+	
+	<!-- Local JS -->
+	<script type="text/javascript" src="js/geoinfo.js"></script>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+                <a class="navbar-brand" href="#">Nearby</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Nearby</a></li>
+                    <li><a href="search.html">Search Location</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+
+
+        <table id="nearby" class="table table-striped">
+            <thead>
+                <th>Type</th>
+                <th>Distance</th>
+                <th>Title</th>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <script>
+            var geonamesResponse = {};
+
+            $(document).ready(function() {
+                initializeSettings();
+            });
+        </script>
+        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+        <script type="text/javascript">
+            //Wait for device libraries to load.
+            document.addEventListener("deviceready", onDeviceReady, false);
+
+            function onDeviceReady() {
+                navigator.geolocation.getCurrentPosition(onSuccess, onError);
+            }
+
+            function onSuccess(position) {
+                //create the JSON query
+                var myUrl = 'http://api.geonames.org/findNearbyWikipediaJSON?lat=' + position.coords.latitude + '&lng=' + position.coords.longitude + '&maxRows=50&username=cmckenzie6';
+
+                //build the DataTable
+                $('#nearby').DataTable({
+                    "ajax": {
+                        "url": myUrl,
+                        "dataSrc": "geonames"
+                    },
+                    "responsive": true,
+                    "oLanguage": {
+                        "sSearch": "Filter: "
+                    },
+                    "fnInitComplete": function(oSettings, json) {
+                        initializePopovers();
+                        initializePage();
+                    },
+                    "fnDrawCallback": function(oSettings) {
+                        initializePopovers();
+                    },
+                    "aoColumns": [{
+                            "mData": "feature",
+                            "sDefaultContent": "",
+                            "className": "text-center",
+                            "mRender": function(data, type, full) { //assign icons based on location type
+                                if (data === 'edu') {
+                                    return '<i class="fa fa-graduation-cap" aria-hidden="true"></i>';
+                                } else if (data === 'landmark') {
+                                    return '<i class="fa fa-building-o" aria-hidden="true"></i>';
+                                } else if (data === 'waterbody') {
+                                    return '<i class="fa fa-tint" aria-hidden="true"></i>';
+                                } else if (data === 'mountain') {
+                                    return 'mtn';
+                                } else {
+                                    return '<i class="fa fa-lightbulb-o" aria-hidden="true"></i>';
+                                };
+                            }
+                        },
+                        {
+                            "mData": "distance",
+                            "mRender": function(data, type, full) {
+                                if (localStorage.getItem("settings-distanceUnit") == "km") {
+                                    return (Math.round(data * 100) / 100) + ' km'; //meters to KM
+                                } else {
+                                    return (Math.round(data * 100 * 0.62137) / 100) + ' mi'; //meters to Miles
+                                }
+
+                            }
+                        },
+                        {
+                            "mData": "title",
+                            "mRender": function(data, type, full) {
+                                return data + ' <button type="button" class="btn btn-xs btn-circle pull-right" data-html="true" data-toggle="popover" data-content="<div class=\'text-center\'><a class=&quot;btn btn-info&quot; onclick=\'cordova.InAppBrowser.open(&quot;http://' + full.wikipediaUrl + '&quot;, &quot;_blank&quot;);\'>More Info</a><br><br><a class=&quot;btn btn-success&quot; onclick=\'cordova.InAppBrowser.open(&quot;http://maps.google.com/?q=' + full.lat + ',' + full.lng + '&quot;, &quot;_blank&quot;);\'>Get Directions</a></div>"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>'; //Create popovers when you click on ellipsis icon
+                            }
+
+                        }
+                    ]
+                });
+            }
+
+            function onError(error) {
+                alert('code: ' + error.code + '\n' +
+                    'message: ' + error.message + '\n');
+            }
+        </script>
+    </div>
+
+</body>
+
+</html>

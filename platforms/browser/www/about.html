@@ -1,84 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>About - ThisPlace</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="css/master.css">
-  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-XYCjB+hFAjSbgf9yKUgbysEjaVLOXhCgATTEBpCqT1R3jvG5LGRAK5ZIyRbH5vpX" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/geoinfo.js"></script>
+    <title>About - ThisPlace</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Local CSS -->
+    <link rel="stylesheet" type="text/css" href="css/master.css">
+	
+	<!-- Bootswatch CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-XYCjB+hFAjSbgf9yKUgbysEjaVLOXhCgATTEBpCqT1R3jvG5LGRAK5ZIyRbH5vpX" crossorigin="anonymous">
+	
+	<!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	
+	<!-- Bootstrap JS -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    
+	<!-- Local JS -->
+	<script type="text/javascript" src="js/geoinfo.js"></script>
 </head>
+
 <body>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">About</a>
+                <a class="navbar-brand" href="#">About</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Nearby</a></li>
+                    <li><a href="search.html">Search Location</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                    <li class="active"><a href="#">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">About ThisPlace</div>
+            <div class="panel-body">ThisPlace is a personal project developed by <a href="#" onclick="cordova.InAppBrowser.open('http://colinmckenzie.mobi', '_blank', 'location=yes');">Colin McKenzie</a>.<br><br> Here's some of the various components that ThisPlace uses to work:
+                <ul>
+                    <li><a href="#" onclick="cordova.InAppBrowser.open('https://jquery.com/', '_blank', 'location=yes');">jQuery</a></li>
+                    <li><a href="#" onclick="cordova.InAppBrowser.open('https://datatables.net/', '_blank', 'location=yes');">DataTables</a></li>
+                    <li><a href="#" onclick="cordova.InAppBrowser.open('http://getbootstrap.com/', '_blank', 'location=yes');">Bootstrap</a></li>
+                    <li><a href="#" onclick="cordova.InAppBrowser.open('http://fontawesome.io/', '_blank', 'location=yes');">Font Awesome</a></li>
+                    <li><a href="#" onclick="cordova.InAppBrowser.open('http://phonegap.com/', '_blank', 'location=yes');">Adobe PhoneGap</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">License</div>
+            <div class="panel-body">MIT License<br><br> Copyright (c) 2017 Colin McKenzie<br><br> Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br><br> The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.<br><br> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+            </div>
+        </div>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="index.html">Nearby</a></li>
-        <li><a href="search.html">Search Location</a></li>
-        <li><a href="settings.html">Settings</a></li>
-		<li class="active"><a href="#">About</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-  
-<div class="container">
-<div class="panel panel-default">
-  <div class="panel-heading">About ThisPlace</div>
-  <div class="panel-body">ThisPlace is a personal project developed by <a href="#" onclick="cordova.InAppBrowser.open('http://colinmckenzie.mobi', '_blank', 'location=yes');">Colin McKenzie</a>.<br><br>
-  
-  Here's some of the various components that ThisPlace uses to work:
-  <ul>
-  <li><a href="#" onclick="cordova.InAppBrowser.open('https://jquery.com/', '_blank', 'location=yes');">jQuery</a></li>
-  <li><a href="#" onclick="cordova.InAppBrowser.open('https://datatables.net/', '_blank', 'location=yes');">DataTables</a></li>
-  <li><a href="#" onclick="cordova.InAppBrowser.open('http://getbootstrap.com/', '_blank', 'location=yes');">Bootstrap</a></li>
-  <li><a href="#" onclick="cordova.InAppBrowser.open('http://fontawesome.io/', '_blank', 'location=yes');">Font Awesome</a></li>
-  <li><a href="#" onclick="cordova.InAppBrowser.open('http://phonegap.com/', '_blank', 'location=yes');">Adobe PhoneGap</a></li>
-  </ul>
-  </div>
-  </div>
-
-<div class="panel panel-default">
-  <div class="panel-heading">License</div>
-  <div class="panel-body">MIT License<br><br>
-  
-Copyright (c) 2017 Colin McKenzie<br><br>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:<br><br>
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.<br><br>
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.</div>
-</div>
-</div>
-<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-<script>
-$( document ).ready(function() {
-		initializePage();
-	});
-</script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script>
+        $(document).ready(function() {
+            initializePage();
+        });
+    </script>
 </body>
+
 </html>
